@@ -1,30 +1,103 @@
-:root{
+:root {
     --blanco: #FFFFFF;
     --oscuro: #212121;
     --primario: #FFC107;
     --secundario: #0097A7;
     --gris: #757575;
+    --fuente: 'Krub', sans-serif
 }
 
-html{
+html {
     font-size: 62.5%;
+    box-sizing: border-box; /*para evitar el modelo caja Box Model part 1*/
+}
+*, *:before, *:after { /*para evitar el modelo caja Box Model part 2*/
+    box-sizing: inherit;
 }
 
-body{
+body {
     font-size: 16px;
-    font-family: 'Krub', sans-serif;
+    font-family: var(--fuente);
 }
-h2{
+
+h1 {
+    font-size: 3.2rem;
+}
+h2 {
     font-size: 2.4rem;
 }
-h3{
+h3 {
     font-size: 1.8rem;
 }
 
-.titulo{
-    font-size: 3.2rem;
+h1, h2, h3 {
     text-align: center;
 }
-.titulo span{
+
+.titulo span {
     font-size: 2rem;
+}
+
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.nav-bg {
+    background-color: var(--secundario);
+}
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 1rem;
+}
+
+.navegacion-principal a:hover {
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.portada {
+    background-image: url(../img/desarrollo-web.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 45rem;
+    position: relative;
+}
+
+.contenido-portada{
+    position: absolute;
+    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0 0 0 / 50%);
+    width: 100%; /*Toma todo el espacio disponible*/
+    height: 100%;
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /*Para alinear verticalmente*/
+}
+
+.contenido-portada h2, .contenido-portada p{
+    color: var(--blanco);
+}
+
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
 }
