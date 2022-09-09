@@ -1,12 +1,16 @@
+/* Custom Properties*/
 :root {
     --blanco: #FFFFFF;
     --oscuro: #212121;
     --primario: #FFC107;
     --secundario: #0097A7;
     --gris: #757575;
+    --fondoInf: #DFE9F3;
     --fuente: 'Krub', sans-serif
 }
 
+
+/* Globales */
 html {
     font-size: 62.5%;
     box-sizing: border-box; /*para evitar el modelo caja Box Model part 1*/
@@ -18,8 +22,50 @@ html {
 body {
     font-size: 16px;
     font-family: var(--fuente);
+    background-image: linear-gradient(to top, var(--fondoInf) 0%, var(--blanco) 100%); /*degradado*/
 }
 
+
+/*Contenedor*/
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+/*Botón*/
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto;
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+.sombra {
+    box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* Tipografía */
 h1 {
     font-size: 3.2rem;
 }
@@ -34,35 +80,18 @@ h1, h2, h3 {
     text-align: center;
 }
 
+
+/* Título */
 .titulo span {
     font-size: 2rem;
 }
 
-.contenedor {
-    max-width: 120rem;
-    margin: 0 auto;
+/** Utilidades **/
+.w-100 {
+    width: 100%;
 }
 
-.boton {
-    background-color: var(--secundario);
-    color: var(--blanco);
-    padding: 1rem 3rem;
-    margin-top: 1rem;
-    font-size: 2rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 700;
-    border-radius: .5rem;
-    width: 90%;
-    text-align: center;
-}
-
-@media (min-width: 768px) {
-    .boton {
-        width: auto;
-    }
-}
-
+/* Navegación Principal*/
 .nav-bg {
     background-color: var(--secundario);
 }
@@ -92,12 +121,14 @@ h1, h2, h3 {
     color: var(--oscuro);
 }
 
+/* Portada*/
 .portada {
     background-image: url(../img/desarrollo-web.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 45rem;
     position: relative;
+    margin-bottom: 2rem;
 }
 
 .contenido-portada{
@@ -117,7 +148,94 @@ h1, h2, h3 {
     color: var(--blanco);
 }
 
-.ubicacion{
+.contenido-portada .ubicacion{
     display: flex;
     align-items: flex-end;
+}
+
+/* Servicios */
+/* Con CSS Grid */
+
+@media (min-width: 768px) {
+    .servicios {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 1fr 1fr 1fr; */
+        /*  grid-template-columns: 33.3% 33.3% 33.3%;   */
+        /*  grid: 20rem 80rem / 30rem 30 rem; (rows / columns) */
+        column-gap: 1rem;
+    }
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: 400;
+}
+.servicio p {
+    line-height: 2; /*interlineado*/
+    text-align: center;
+}
+
+.servicio .iconos {
+    width: 15rem;
+    height: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* Contacto */
+.formulario {
+    background-color: var(--gris);
+    width: min(60rem, 100%); /* Utiliza el valor más pequeño*/
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 1rem;
+
+}
+
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+
+.contenedor-campos {
+
+}
+
+.campo {
+    margin-bottom: 2rem;
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+
+.input-text {
+    width: 100%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+
+.enviar .boton {
+    width: 100%;
 }
